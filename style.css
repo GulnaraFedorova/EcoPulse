@@ -940,6 +940,11 @@ body {
         opacity: 0.2;
     }
 
+    .form-list__inner {
+        background-position: center;
+        background-size: cover;
+    }
+
     .form-list__form {
         margin: 10px;
         display: flex;
