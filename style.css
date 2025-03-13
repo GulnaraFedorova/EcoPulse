@@ -895,6 +895,11 @@ body {
         transition: transform .6s ease;
     }
 
+    .menu__link {
+        text-align: center;
+        line-height: 300%;
+    }
+
     .menu__list.menu__list--open {
         transform: translateY(0%);
     }
