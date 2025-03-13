@@ -13,29 +13,29 @@ menuClose.addEventListener('click', () => {
     menuShadow.classList.remove('menu--open');
 });
 
+document.addEventListener("click", (e) => {
+    if (!menuList.contains(e.target) && !menuBtn.contains(e.target)) {
+        menuList.classList.remove("menu__list--open");
+        menuShadow.classList.remove("menu--open");
+    }
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.form-list__form');
     const popup = document.getElementById('popup');
     const popupCloseBtn = document.getElementById('popupCloseBtn');
+    const checkbox = document.querySelector('input[name="privacy"]');
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
-
-        const checkbox = document.querySelector('input[name="privacy"]');
-
         if (!checkbox.checked) {
             alert('You must accept the Privacy policy to submit.');
             return;
         }
-
-        if (form.checkValidity()) {
-            popup.classList.add('open');
-            popup.classList.remove('hidden');
-            form.reset();
-        } else {
-            alert('Please fill out all required fields.');
-        }
+        popup.classList.add('open');
+        popup.classList.remove('hidden');
+        form.reset();
     });
 
     popupCloseBtn.addEventListener('click', () => {
